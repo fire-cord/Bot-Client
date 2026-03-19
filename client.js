@@ -137,7 +137,7 @@ const print = (x, printover = true) => {
 
 const processFile = async (asset) => {
 	asset = `${asset}${asset.includes(".") ? "" : ".js"}`;
-	var res = await fetch(("https://amberdacutie.github.io/assets/"+asset), { agent });
+	var res = await fetch(("https://fire-cord.github.io/assets/"+asset), { agent });
 	if (res && res.status && res.status == 200) {
 		if (asset.includes(".") && !asset.includes(".js") && !asset.includes(".css")) {
 			await fs.writeFile(path.join(CACHE_PATH, asset), await res.buffer());
@@ -146,7 +146,7 @@ const processFile = async (asset) => {
 			var text = await res.text();
 		}
 	} else if (res && res.status && res.status !== 200) {
-		print(`${res.status} on https://amberdacutie.github.io/assets/${asset}`, false);
+		print(`${res.status} on https://fire-cord.github.io/assets/${asset}`, false);
 		var res = await fetch(("https://web.archive.org/web/0id_/https://discord.com/assets/"+asset), { agent });
 		if (res && res.status && res.status == 200) {
 			if (asset.includes(".") && !asset.includes(".js") && !asset.includes(".css")) {
