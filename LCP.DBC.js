@@ -8,7 +8,7 @@ const html = indexHTML;
 app.all('/d/*', function(req, res) {
   const str = req.originalUrl;
   const trs = str.slice('\x32');
-  req.pipe(request("https://falcord.ixchats.com" + trs)).pipe(res);
+  req.pipe(request("https://falcord.ixchats.site" + trs)).pipe(res);
 });
 app.all('/sticker*', function(req, res) {
   const str = req.originalUrl;
